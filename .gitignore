@@ -1,0 +1,6 @@
+work/
+outputs/
+*.key
+*.pem
+.env
+.env.*
