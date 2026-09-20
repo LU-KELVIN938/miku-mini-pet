@@ -1,0 +1,22 @@
+{
+  "directions": [
+    {"direction":"000","expected":"up","verdict":"pass","observed":"eyes up, chin lifted, frontal","reason":"Cardinal up is unmistakable."},
+    {"direction":"022.5","expected":"up-right","verdict":"pass","observed":"upward gaze with slight right turn","reason":"Smooth step from up toward right."},
+    {"direction":"045","expected":"up-right","verdict":"pass","observed":"up-right eyes and head","reason":"Diagonal remains in upper-right quadrant."},
+    {"direction":"067.5","expected":"up-right","verdict":"pass","observed":"near-right face with raised gaze","reason":"Monotonic approach to right cardinal."},
+    {"direction":"090","expected":"right","verdict":"pass","observed":"right profile, nose and pupils right","reason":"Cardinal right is unmistakable."},
+    {"direction":"112.5","expected":"down-right","verdict":"pass","observed":"right turn with lowered gaze","reason":"Smooth transition below right axis."},
+    {"direction":"135","expected":"down-right","verdict":"warning","observed":"right-facing with modest downward cue","reason":"Labeled loop supports down-right; blind vertical cue is subtle."},
+    {"direction":"157.5","expected":"down-right","verdict":"pass","observed":"near-down head and eyes, still right-biased","reason":"Approaches down cardinal continuously."},
+    {"direction":"180","expected":"down","verdict":"pass","observed":"bowed head and lowered eyes","reason":"Cardinal down is unmistakable."},
+    {"direction":"202.5","expected":"down-left","verdict":"pass","observed":"downward gaze with slight left turn","reason":"Smooth step from down toward left."},
+    {"direction":"225","expected":"down-left","verdict":"warning","observed":"left turn with lowered gaze","reason":"Labeled loop supports down-left; vertical cue is softer at pet size."},
+    {"direction":"247.5","expected":"down-left","verdict":"pass","observed":"near-left profile with lowered gaze","reason":"Monotonic approach to left cardinal."},
+    {"direction":"270","expected":"left","verdict":"pass","observed":"left profile, nose and pupils left","reason":"Cardinal left is unmistakable."},
+    {"direction":"292.5","expected":"up-left","verdict":"warning","observed":"left profile with emerging upward gaze","reason":"Blind vertical cue is subtle but ordered loop and labeled sheet confirm upper-left."},
+    {"direction":"315","expected":"up-left","verdict":"warning","observed":"left turn with raised gaze","reason":"Upper-left quadrant is readable; blind review was mixed."},
+    {"direction":"337.5","expected":"up-left","verdict":"pass","observed":"near-up gaze with left bias","reason":"Continuous return toward up cardinal."}
+  ],
+  "reviewed_by":"parent",
+  "notes":"Humanoid mechanics use eyes first, eyelids/brows, restrained head/neck and upper-body follow-through, anchored lower body, and smoothly lagging twin-tails. No whole-sprite rotation. Warnings are minor blind-review uncertainty; no wrong cardinal or visible reversal."
+}
