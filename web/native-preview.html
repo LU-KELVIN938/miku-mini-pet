@@ -1,7 +1,7 @@
 <!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Miku Mini · Codex 原生步态预览</title>
 <style>body{font-family:'Segoe UI','Microsoft YaHei',sans-serif;background:#ecf6f3;color:#284d56;margin:0;padding:30px}main{max-width:760px;margin:auto}h1{font-size:25px}p{font-size:14px;line-height:1.7}select,button{padding:8px;border-radius:8px;border:1px solid #bad7d1;background:white;color:#284d56}.compare{display:flex;gap:30px;margin:25px 0}.card{background:#fff;border:1px solid #c9e1da;border-radius:18px;padding:15px;text-align:center;flex:1}.pet{width:192px;height:208px;margin:15px auto;background-size:800% 1100%;background-repeat:no-repeat}small{color:#597d82}@media(max-width:500px){body{padding:15px}.compare{gap:10px}.card{padding:5px}.pet{width:144px;height:156px}}</style>
-<main><h1>Miku Mini · 左右脚交替步态</h1><p>复用原画补齐换脚姿势。向左、向右移动各有八个姿势，保留原来的角色样子。</p>
+<main><h1>Miku Mini · 原动作轻量版</h1><p>保留原来的动作和顺序，恢复原画中的腿部姿势。</p>
 <label>动作 <select id="state"><option value="idle">待机</option><option value="running">工作中</option><option value="waiting">等你回应</option><option value="review">审阅</option><option value="running-right">向右移动</option><option value="running-left">向左移动</option><option value="waving">挥手</option><option value="jumping">跳跃</option><option value="failed">失落</option></select></label>
 <label><input type="checkbox" id="loop">循环观察</label><button id="stop">停止 / 待机</button>
 <div class="compare"><div class="card">原素材<div class="pet" id="original"></div></div><div class="card">新版 Codex 素材<div class="pet" id="native"></div></div></div>

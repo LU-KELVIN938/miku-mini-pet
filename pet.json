@@ -1,7 +1,7 @@
 {
   "id": "miku-mini",
-  "displayName": "Miku Mini · 原生步态版",
-  "description": "复用原画的左右脚交替八格步态，由 Codex 原生时序播放，保留待机微动作与16个注视方向。",
+  "displayName": "Miku Mini · 原动作轻量版",
+  "description": "保留原画动作和顺序，使用无损静态图集与 Codex 原生播放时序，取消额外图片动画和程序腿部动作。",
   "spriteVersionNumber": 2,
   "spritesheetPath": "spritesheet.webp"
 }

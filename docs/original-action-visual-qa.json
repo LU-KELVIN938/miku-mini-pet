@@ -1,0 +1,16 @@
+{
+  "atlasSha256": "3a9d3408645defbb9fb24b9c7114a44e808a21358bd29109ceab21c38acaf550",
+  "accepted": true,
+  "scope": "仅文件视觉 QA：对照 source-spritesheet.webp 的左右移动原始8格，检查 native-motion-sheet.png 与 running-right.gif、running-left.gif 的原动作恢复、清晰度和无新增破坏。",
+  "verdict": "pass",
+  "observations": [
+    "左右行的八格姿势及列顺序与原图一致，原始伸腿与屈腿动作已恢复，未见程序重建腿部残留。",
+    "面部、发型、服装与腿脚轮廓保持原画清晰度；未见新增白色楔形、肢体缺失、明显模糊插值、裁切或接缝。",
+    "左右面对方向正确，角色身份及比例保持一致。"
+  ],
+  "warnings": [
+    "原动作的步幅与领步特点按用户明确要求保留，不作为缺陷。",
+    "GIF 已作为文件读取，视觉结论主要来自八格接触表与源图对照；不声称验证完整实时播放、丢帧或性能。"
+  ],
+  "actualCodexWindowVerified": false
+}

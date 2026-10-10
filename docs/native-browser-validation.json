@@ -1,7 +1,7 @@
 {
   "ok": true,
   "scope": "isolated headless Edge CSS/data-URL rendering of the final static v2 atlas; preview model of the installed native timers",
-  "atlasSha256": "4576ea4af10e08ddfa413ce00774af354e2ffb5ea412ee0c9fdd3e1a2dcd5f70",
+  "atlasSha256": "3a9d3408645defbb9fb24b9c7114a44e808a21358bd29109ceab21c38acaf550",
   "states": {
     "idle": {
       "distinctRenderedCells": 6,

@@ -12,7 +12,7 @@
   "spriteVersionNumber": 2,
   "imageFrames": 1,
   "imageHasIndependentAnimationClock": false,
-  "unrelatedRowsVisibleRGBAUnchangedFromOriginalSource": true,
+  "nonLocomotionRowsVisibleRGBAUnchangedFromReferenceBase": true,
   "unusedCellsTransparent": true,
   "motion": {
     "running-right": {
@@ -46,23 +46,25 @@
       "gaitVisualQA": "required; distinct pixels do not prove foot alternation"
     }
   },
-  "atlasSha256": "4576ea4af10e08ddfa413ce00774af354e2ffb5ea412ee0c9fdd3e1a2dcd5f70",
-  "bytes": 2653580,
+  "atlasSha256": "3a9d3408645defbb9fb24b9c7114a44e808a21358bd29109ceab21c38acaf550",
+  "bytes": 3150790,
   "animatedAtlasFrames": 1,
   "playbackClock": "Codex native cell timer only",
   "locomotionPoseHashes": {
-    "running-right": "5eea6c7879fc403a3adf1e702df99b81c14575fc30c82e795f2e850f5d36ee5c",
-    "running-left": "537f250fd2485c98fdbeb163a4d02503ce15ad2028abda19e669114eb3075bc0"
+    "running-right": "3db3f13dde45df3f8bbde99a3e7025be937ceb8a86d893b3cff44ad31fb1da94",
+    "running-left": "27a883ba94976ef363ada9b27496bc1730bd4dc752bee5c2c8cf1a379faac98b"
   },
   "baseSha256": "3a9d3408645defbb9fb24b9c7114a44e808a21358bd29109ceab21c38acaf550",
   "lookRowsVisibleRGBAIdenticalToOriginalSource": true,
   "nonLocomotionRowsVisibleRGBAIdenticalToApprovedMicroBase": true,
-  "completeAlternatingGait": true,
+  "originalWalkingVisibleRGBAIdenticalToSource": true,
+  "originalWalkingColumnOrderPreserved": true,
+  "movementResamplingOrInterpolation": false,
+  "userRequestedOriginalActions": true,
   "releaseReady": true,
+  "releaseScope": "original artwork restoration and lossless single-clock packaging; not measured desktop frame drops",
   "acceptedVisualWarnings": [
-    "02,03,05: angular knee silhouettes from the source-art mesh deformation",
-    "00,01,07: overlapping feet reduce alternation visibility at native size",
-    "07: the host-defined 220ms hold may still cause a cadence pause"
+    "original action and limited frame cadence retained at user request"
   ],
   "actualCodexWindowVerified": false,
   "hostLimitations": [

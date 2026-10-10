@@ -1,4 +1,11 @@
-# 2026-10-10 · Native walking gait repair
+# 2026-10-11 · Restore original actions and remove interpolation from movement
+
+- At the user's request, withdrew the procedural two-leg gait and restored both movement rows and their column order from the original artwork. Decoded visible RGBA is identical to the original source; no movement resampling, sharpening or optical-flow frame synthesis.
+- Retained the static micro-action base for other rows and the original sixteen look cells. The lossless static atlas is 3,150,790 bytes, replacing the earlier 44,272,996-byte animated atlas without reintroducing its independent animation clock.
+- This addresses synthetic movement-frame artifacts and extra animated-atlas decoding work. It does not raise Codex's fixed 120ms cell rate or establish that desktop frame drops have been eliminated. Actual Codex window performance remains unmeasured.
+- Renamed the selectable pet to `Miku Mini · 原动作轻量版` and updated the build, package and install visual-review gates for artwork restoration.
+
+# Historical 2026-10-10 · Native walking gait repair (withdrawn)
 
 - Reused existing Miku source pixels in an independently controlled two-leg textured rig, as explicitly chosen by the user. Added the missing opposite leading-foot half-cycle; no paid image generation.
 - Baked eight distinct rightward poses and mirrored individual cells for leftward motion after independent QA approval. The frame order and native 120ms/220ms durations are preserved.
