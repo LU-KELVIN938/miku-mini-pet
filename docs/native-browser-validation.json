@@ -1,0 +1,23 @@
+{
+  "ok": true,
+  "states": [
+    "idle",
+    "running",
+    "waiting",
+    "review",
+    "running-right",
+    "running-left",
+    "waving",
+    "jumping",
+    "failed"
+  ],
+  "scope": "isolated headless Edge CSS background-image using the same image data URL and 8x11 layout as the installed Codex build",
+  "checks": [
+    "animated idle visibly changes while native idle holds its first cell",
+    "all nine state rows render",
+    "custom pet data URL loads without page errors",
+    "native timers and background-position grid"
+  ],
+  "actualCodexWindowReloaded": false,
+  "errors": []
+}

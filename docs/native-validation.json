@@ -4,6 +4,19 @@
     1536,
     2288
   ],
+  "grid": [
+    8,
+    11
+  ],
+  "cell": [
+    192,
+    208
+  ],
+  "spriteVersionNumber": 2,
+  "animatedAtlasFrames": 32,
+  "frameDurationMs": 80,
+  "loopMs": 2560,
+  "imageAnimationTargetFPS": 12.5,
   "usedCounts": [
     7,
     8,
@@ -18,7 +31,60 @@
     8
   ],
   "unusedCellsTransparent": true,
-  "lookRowsPixelIdenticalToSource": true,
-  "scope": "geometry, alpha preservation and format; motion checked separately",
-  "staticDefaultPixelIdenticalToSource": true
+  "lookRowsVisiblePixelIdenticalToSourceInEveryFrame": true,
+  "staticDefaultVisiblePixelIdenticalToSource": true,
+  "roundTripVisibleRGBAIdentical": true,
+  "transparentRGBComparison": "canonicalized to zero; alpha preserved exactly",
+  "states": [
+    {
+      "state": "idle",
+      "visibleFramesChanged": true,
+      "source": "baked original sprite layers"
+    },
+    {
+      "state": "running-right",
+      "visibleFramesChanged": true,
+      "source": "accepted RIFE frames"
+    },
+    {
+      "state": "running-left",
+      "visibleFramesChanged": true,
+      "source": "accepted RIFE frames"
+    },
+    {
+      "state": "waving",
+      "visibleFramesChanged": true,
+      "source": "accepted RIFE frames"
+    },
+    {
+      "state": "jumping",
+      "visibleFramesChanged": true,
+      "source": "accepted RIFE frames"
+    },
+    {
+      "state": "failed",
+      "visibleFramesChanged": false,
+      "source": "original reaction"
+    },
+    {
+      "state": "waiting",
+      "visibleFramesChanged": true,
+      "source": "baked original sprite layers"
+    },
+    {
+      "state": "running",
+      "visibleFramesChanged": true,
+      "source": "baked original sprite layers"
+    },
+    {
+      "state": "review",
+      "visibleFramesChanged": true,
+      "source": "baked original sprite layers"
+    }
+  ],
+  "sourceSha256": "0353fd41a49b0892691969224785524b0644449bd23ae5a7fc61aec4662ab4b5",
+  "atlasSha256": "ff04aa4f8e21007fa1386ab42b33aa69ee29edac835e97e714e4d48a87a67ffb",
+  "bytes": 25843322,
+  "runtime": "native animated WebP decoded by the existing CSS background-image; no external process",
+  "scope": "file format, all decoded frames, visible source differences; host rendering tested separately"
 }

@@ -1,39 +1,38 @@
-"""Package reviewed Git-visible files only; exclude scratch, credentials and caches."""
+"""Package only what the Codex native pet requires, plus recovery/validation files."""
 from pathlib import Path
 from zipfile import ZipFile, ZIP_DEFLATED
-import argparse, hashlib, json, shutil, subprocess
-from PIL import Image
-import numpy as np
+import argparse, hashlib, json, shutil
 ROOT=Path(__file__).resolve().parents[1]
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--out',type=Path,required=True)
     args=parser.parse_args();args.out.mkdir(parents=True,exist_ok=True)
-    source=np.array(Image.open(ROOT/'assets/source-spritesheet.webp').convert('RGBA'))
-    native=np.array(Image.open(ROOT/'assets/spritesheet.webp').convert('RGBA'))
-    assert native.shape==(2288,1536,4)
-    assert np.array_equal(source[1872:],native[1872:])
-    assert np.array_equal(source[:208,1152:1344],native[:208,1152:1344])
     report=json.loads((ROOT/'docs/native-validation.json').read_text('utf-8'))
-    report['staticDefaultPixelIdenticalToSource']=True
-    (ROOT/'docs/native-validation.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
-    for name in ['player','desktop']:
-        assert json.loads((ROOT/f'docs/{name}-validation.json').read_text('utf-8'))['ok']
-    files=subprocess.check_output(['git','ls-files','--cached','--others','--exclude-standard','-z'],cwd=ROOT).decode('utf-8').split('\0')
-    archive=args.out/'Miku-Mini-lightweight.zip'
+    assert report['ok'] and report['animatedAtlasFrames']==32
+    assert report['atlasSha256']==hashlib.sha256((ROOT/'assets/spritesheet.webp').read_bytes()).hexdigest()
+    assert json.loads((ROOT/'docs/native-browser-validation.json').read_text('utf-8'))['ok']
+    assert (ROOT/'docs/native-visual-qa.md').exists()
+    entries={'pet.json':'pet.json','assets/spritesheet.webp':'spritesheet.webp',
+             'assets/static-spritesheet.webp':'static-spritesheet.webp',
+             'Install-Codex.cmd':'Install-Codex.cmd','Install-Codex.ps1':'Install-Codex.ps1',
+             'README.md':'README.md','THIRD-PARTY.md':'THIRD-PARTY.md',
+             'docs/native-validation.json':'docs/native-validation.json',
+             'docs/native-browser-validation.json':'docs/native-browser-validation.json',
+             'docs/native-visual-qa.md':'docs/native-visual-qa.md',
+             'docs/native-previews/idle.gif':'docs/native-previews/idle.gif',
+             'docs/native-preview.png':'docs/native-preview.png',
+             'web/rig/LICENSE':'LICENSES/Anime2.5DRig.txt'}
+    archive=args.out/'Miku-Mini-Codex-pet.zip'
     with ZipFile(archive,'w',ZIP_DEFLATED,compresslevel=6) as bundle:
-        for name in sorted(set(filter(None,files))):
-            path=Path(name)
-            assert not any(part in {'.git','work','outputs','__pycache__','.venv'} for part in path.parts)
-            assert path.suffix.lower() not in {'.key','.pem','.pyc'} and not path.name.startswith('.env')
-            if (ROOT/path).is_file():bundle.write(ROOT/path,'Miku-Mini/'+path.as_posix())
-    shutil.copy2(ROOT/'docs/previews/layered-idle.gif',args.out/'Miku-Mini-idle.gif')
-    shutil.copy2(ROOT/'docs/player-preview.png',args.out/'Miku-Mini-comparison.png')
-    shutil.copy2(ROOT/'README.md',args.out/'Miku-Mini-使用说明.md')
+        for source,dest in entries.items():bundle.write(ROOT/source,'Miku-Mini-Codex/'+dest)
+    with ZipFile(archive) as bundle:assert bundle.testzip() is None
+    shutil.copy2(ROOT/'docs/native-previews/idle.gif',args.out/'Miku-Mini-Codex-idle.gif')
+    shutil.copy2(ROOT/'docs/native-preview.png',args.out/'Miku-Mini-Codex-preview.png')
+    shutil.copy2(ROOT/'README.md',args.out/'Miku-Mini-Codex-使用说明.md')
     note={'package':archive.name,'sha256':hashlib.sha256(archive.read_bytes()).hexdigest(),
-          'bytes':archive.stat().st_size,'nativeInstallation':'backed up and installed separately',
-          'gitHubUpdate':'pending authentication; check live repository for publication status'}
-    (args.out/'package-info.json').write_text(json.dumps(note,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+          'bytes':archive.stat().st_size,'type':'Codex v2 native pet, animated WebP with static fallback',
+          'gitHubUpdate':'pending native update push'}
+    (args.out/'native-package-info.json').write_text(json.dumps(note,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(note,ensure_ascii=False))
 
 if __name__=='__main__':main()

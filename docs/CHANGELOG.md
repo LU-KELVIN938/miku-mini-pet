@@ -1,5 +1,17 @@
 # 2026-10-10 · Lightweight motion update
 
+## Native Codex correction
+
+- The earlier registration calculations were all zero: the previously installed compatibility atlas had exactly the original visible pixels. Actual interpolation and layered animation only ran in the standalone player. Those earlier native-improvement claims were incorrect.
+- The main deliverable now loads as a Codex v2 custom pet: a 32-frame animated WebP atlas, baked offline from the original Codex sprite layers and accepted RIFE gesture frames. No standalone process is required during playback.
+- The installed Codex 26.930.4958.0 bundle was read to confirm its data-URL image loader, 8x11 CSS grid, fixed action counts/durations and sixfold idle slowdown. Program files were not modified.
+- The embedded image animation changes eight states; the failure reaction remains original. All look cells retain their visible pixels and alpha in every animation frame. Fully transparent RGB may be filled by the WebP animation decoder; it remains invisible.
+- Added a standard static fallback, native-only installer/package, original-versus-native previews and tests that confirm the actual installed asset changes over time under the same CSS/data-URL mechanism.
+- Corrected a closed-eye skin sampling error before acceptance. The final baked model keeps the original native sprite's identity and proportions.
+- The running Codex window has not been restarted or inspected. A full application reload/reselection is required to replace its cached image; a same-engine headless test is not an in-app visual verification.
+
+## Earlier standalone implementation
+
 - Preserved the original atlas as `assets/source-spritesheet.webp`.
 - Applied bounded horizontal registration to the existing standard frames; no per-frame rescaling or intentional jump-height change. The existing static idle/default slot and all 16 look cells are preserved.
 - Added an editable six-layer PSD cut from the existing canonical artwork. Blink lids reuse an existing blink frame. No new AI images were generated. Small skin regions behind the separated eyes use cloned local skin pixels.

@@ -1350,7 +1350,16 @@ Object.defineProperty(window,'MikuPetRig',{value:Object.freeze({
   setFPS(value){mikuFPS=value===60?60:30;},
   setPaused(value){paused=!!value;},
   snapshot(){return {fps:mikuFPS,paused,layers:layers.length,params:{...T},auto:{...auto}};},
-  captureForQA(now,dt){render(animate(now,dt));return cv.toDataURL('image/png');}
+  captureForQA(now,dt){render(animate(now,dt));return cv.toDataURL('image/png');},
+  captureNative(values,phase){
+    const e={...T,...values,irisBounceX:1,irisBounceY:1};
+    for(const key of ['angleX','angleY','angleZ','body'])e[key]=clamp(e[key],-.18,.18);
+    for(const L of layers)if(L.spr)for(let i=0;i<L.spr.length;i++){
+      const sp=L.spr[i],wind=Math.sin(phase+i*.25)*10;
+      sp.stiff.dx=wind;sp.soft.dx=wind;
+    }
+    render(e);return cv.toDataURL('image/png');
+  }
 })});
 
 // ---------- start ----------

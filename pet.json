@@ -1,7 +1,7 @@
 {
   "id": "miku-mini",
-  "displayName": "Miku Mini",
-  "description": "一只青绿色双马尾、未来感十足又元气可爱的初音未来Q版桌宠。",
+  "displayName": "Miku Mini · 内置流畅版",
+  "description": "保留原画的 Codex 内置宠物，带连续呼吸、眨眼、发梢轻摆和精选动作过渡。",
   "spriteVersionNumber": 2,
   "spritesheetPath": "spritesheet.webp"
 }

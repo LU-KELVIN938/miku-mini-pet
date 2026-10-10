@@ -12,7 +12,11 @@ def main():
             im=Image.open(ROOT/'web'/path).convert('RGBA');bg=Image.new('RGBA',im.size,(236,246,243,255));bg.alpha_composite(im);frames.append(bg.convert('RGB'))
         frames[0].save(dest/f"{row['state']}.gif",save_all=True,append_images=frames[1:],duration=seq['durations'],loop=0)
     source=Image.open(ROOT/'assets/source-spritesheet.webp').convert('RGBA')
-    atlas=Image.open(ROOT/'assets/spritesheet.webp').convert('RGBA')
+    atlas_file=Image.open(ROOT/'assets/spritesheet.webp')
+    if getattr(atlas_file,'n_frames',1)>1:
+        print('Standalone previews generated; native animated atlas validation belongs to build_native.py.')
+        return
+    atlas=atlas_file.convert('RGBA')
     # This existing atlas also reserves row 0, column 6 for its static default pose.
     used=[7,8,8,4,5,8,6,6,6,8,8];labels=[r['state'] for r in config['states']]+['look A','look B']
     contact=Image.new('RGB',(920,1154),'#edf5f3');draw=ImageDraw.Draw(contact)
