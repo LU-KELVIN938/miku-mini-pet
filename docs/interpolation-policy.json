@@ -1,0 +1,7 @@
+{
+  "sourceSha256": "0353fd41a49b0892691969224785524b0644449bd23ae5a7fc61aec4662ab4b5",
+  "model": "rife-v4.6",
+  "rejectedPairs": {"running-right": [4], "jumping": [2]},
+  "decision": "Independent image review found a conspicuous bright boot/sleeve wedge in these transitions. Preserve the original frame for its full original duration instead of publishing the defective intermediate pose.",
+  "indexMeaning": "Zero-based source frame index; pair i is frame i to (i+1) modulo source count."
+}

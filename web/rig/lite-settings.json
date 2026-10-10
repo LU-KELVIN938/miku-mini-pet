@@ -1,0 +1,1 @@
+{"format":"anime25d-settings","version":2,"modelId":"miku-mini-lite","params":{"angleX":0,"angleY":0,"angleZ":0,"body":0,"physAmp":0.30,"soft":0.35,"fhAmp":0,"fhSoft":0,"bust":0,"irisScale":1,"mouthOpen":0},"auto":{"idle":true,"blink":true,"rand":false,"talk":false,"mouse":false,"phys":true},"layers":[],"anchors":{},"background":"checker"}

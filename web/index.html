@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Miku Mini · 动作预览</title><link rel="stylesheet" href="player.css"></head>
+<body><main>
+  <header><span class="tag">MIKU MINI</span><h1>未来喵，动得自然一点。</h1><p>常用动作轻柔连续，跑步和挥手保留原来的样子。</p></header>
+  <section class="controls" aria-label="动画设置">
+    <label>动作<select id="state"><option value="idle">待机</option><option value="running">工作中</option><option value="waiting">等你回应</option><option value="review">审阅</option><option value="running-right">向右跑</option><option value="running-left">向左跑</option><option value="waving">挥手</option><option value="jumping">跳跃</option><option value="failed">失落</option></select></label>
+    <label>播放方式<select id="mode"><option value="hybrid">组合优化</option><option value="registered">仅修正位置</option><option value="interpolated">修正＋补帧</option></select></label>
+    <label>流畅度<select id="fps"><option value="30">30 帧 · 省资源</option><option value="60">60 帧</option></select></label>
+    <button id="pause" type="button" aria-pressed="false">暂停</button>
+  </section>
+  <section class="comparison">
+    <article class="stage original"><div class="stage-title">原版<span>相同动作时长</span></div><canvas id="original" width="192" height="208" aria-label="原版宠物动画"></canvas></article>
+    <article class="stage optimized"><div class="stage-title">优化版<span id="technique">正在准备</span></div><div class="pet-area"><canvas id="optimized" width="192" height="208" aria-label="优化宠物动画"></canvas><iframe id="rig" title="连续动作宠物" src="rig/index.html?obs=1&amp;model=miku-lite.psd&amp;settings=lite-settings.json" allow=""></iframe></div></article>
+  </section>
+  <footer><span id="status" role="status">正在加载动作…</span><span>保留角色 · 随时切回原版</span></footer>
+  <div id="desktop-actions"><button id="greet" type="button">挥手</button><button id="quit" type="button">关闭</button></div>
+</main><script src="player.js"></script></body></html>

@@ -1,0 +1,15 @@
+{
+  "method": "deterministic masks of existing canonical artwork",
+  "closedEyes": "existing idle blink frame",
+  "eyeBase": "local skin pixels cloned inside original eye aperture",
+  "generatedImages": 0,
+  "layers": [
+    "back hair_1",
+    "back hair_2",
+    "topwear",
+    "face",
+    "eyewhite",
+    "eye_close"
+  ],
+  "scope": "small head movement, breathing, blink and twin-tail sway; not full Live2D"
+}

@@ -1,0 +1,115 @@
+{
+  "layers": [
+    {
+      "name": "back hair_1",
+      "group": "head",
+      "physics": "hair",
+      "width": 233,
+      "height": 521
+    },
+    {
+      "name": "back hair_2",
+      "group": "head",
+      "physics": "hair",
+      "width": 286,
+      "height": 522
+    },
+    {
+      "name": "topwear",
+      "group": "body",
+      "physics": null,
+      "width": 345,
+      "height": 337
+    },
+    {
+      "name": "face",
+      "group": "head",
+      "physics": null,
+      "width": 272,
+      "height": 270
+    },
+    {
+      "name": "eyewhite_l",
+      "group": "head",
+      "physics": null,
+      "width": 60,
+      "height": 60
+    },
+    {
+      "name": "eyewhite_r",
+      "group": "head",
+      "physics": null,
+      "width": 63,
+      "height": 59
+    },
+    {
+      "name": "eye_close_l",
+      "group": "head",
+      "physics": null,
+      "width": 46,
+      "height": 25
+    },
+    {
+      "name": "eye_close_r",
+      "group": "head",
+      "physics": null,
+      "width": 54,
+      "height": 27
+    }
+  ],
+  "anchors": {
+    "face": {
+      "cx": 289.63137868623704,
+      "cy": 166.92255152229495,
+      "x0": 158,
+      "x1": 425,
+      "y0": 29,
+      "y1": 294
+    },
+    "eyeL": {
+      "x0": 218,
+      "x1": 273,
+      "y0": 198,
+      "y1": 253,
+      "icx": 244.8289256198347,
+      "icy": 224.59421487603305,
+      "closeY": 234.02976602074455
+    },
+    "eyeR": {
+      "x0": 311,
+      "x1": 369,
+      "y0": 190,
+      "y1": 244,
+      "icx": 340.11565762004176,
+      "icy": 215.63089770354907,
+      "closeY": 223.53887406277798
+    },
+    "mouth": {
+      "x0": 269.63137868623704,
+      "x1": 309.63137868623704,
+      "y0": 206.92255152229495,
+      "y1": 226.92255152229495,
+      "cx": 289.63137868623704,
+      "cy": 216.92255152229495
+    },
+    "neckPivot": {
+      "cx": 289.63137868623704,
+      "cy": 314
+    },
+    "neckTop": 294,
+    "neckBottom": 354,
+    "bodyPivot": {
+      "cx": 289.63137868623704,
+      "cy": 649
+    },
+    "faceScale": 0.8018018018018018,
+    "hairRootY": 89
+  },
+  "warnings": [
+    "mouth_open / mouth_close がありません"
+  ],
+  "synth": {
+    "eye": false,
+    "mouth": false
+  }
+}

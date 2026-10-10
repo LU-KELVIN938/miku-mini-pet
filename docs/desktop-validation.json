@@ -1,0 +1,106 @@
+{
+  "ok": true,
+  "scope": "actual pywebview EdgeChromium window; no screen capture",
+  "states": [
+    {
+      "state": "idle",
+      "mode": "hybrid",
+      "paused": false,
+      "fps": 30,
+      "rigReady": true,
+      "activeLayered": true,
+      "sourceFrames": 6,
+      "outputFrames": 6,
+      "loopMs": 1100
+    },
+    {
+      "state": "running",
+      "mode": "hybrid",
+      "paused": false,
+      "fps": 30,
+      "rigReady": true,
+      "activeLayered": true,
+      "sourceFrames": 6,
+      "outputFrames": 6,
+      "loopMs": 820
+    },
+    {
+      "state": "waiting",
+      "mode": "hybrid",
+      "paused": false,
+      "fps": 30,
+      "rigReady": true,
+      "activeLayered": true,
+      "sourceFrames": 6,
+      "outputFrames": 6,
+      "loopMs": 1010
+    },
+    {
+      "state": "review",
+      "mode": "hybrid",
+      "paused": false,
+      "fps": 30,
+      "rigReady": true,
+      "activeLayered": true,
+      "sourceFrames": 6,
+      "outputFrames": 6,
+      "loopMs": 1030
+    },
+    {
+      "state": "running-right",
+      "mode": "hybrid",
+      "paused": false,
+      "fps": 30,
+      "rigReady": true,
+      "activeLayered": false,
+      "sourceFrames": 8,
+      "outputFrames": 16,
+      "loopMs": 1060
+    },
+    {
+      "state": "running-left",
+      "mode": "hybrid",
+      "paused": false,
+      "fps": 30,
+      "rigReady": true,
+      "activeLayered": false,
+      "sourceFrames": 8,
+      "outputFrames": 16,
+      "loopMs": 1060
+    },
+    {
+      "state": "waving",
+      "mode": "hybrid",
+      "paused": false,
+      "fps": 30,
+      "rigReady": true,
+      "activeLayered": false,
+      "sourceFrames": 4,
+      "outputFrames": 8,
+      "loopMs": 700
+    },
+    {
+      "state": "jumping",
+      "mode": "hybrid",
+      "paused": false,
+      "fps": 30,
+      "rigReady": true,
+      "activeLayered": false,
+      "sourceFrames": 5,
+      "outputFrames": 10,
+      "loopMs": 840
+    },
+    {
+      "state": "failed",
+      "mode": "hybrid",
+      "paused": false,
+      "fps": 30,
+      "rigReady": true,
+      "activeLayered": false,
+      "sourceFrames": 8,
+      "outputFrames": 8,
+      "loopMs": 1220
+    }
+  ],
+  "transparentBackground": "rgba(0, 0, 0, 0)"
+}

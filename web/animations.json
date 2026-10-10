@@ -1,0 +1,337 @@
+{
+  "cell": [
+    192,
+    208
+  ],
+  "states": [
+    {
+      "state": "idle",
+      "row": 0,
+      "count": 6,
+      "durations": [
+        280,
+        110,
+        110,
+        140,
+        140,
+        320
+      ],
+      "frames": [
+        "frames/idle/00.png",
+        "frames/idle/01.png",
+        "frames/idle/02.png",
+        "frames/idle/03.png",
+        "frames/idle/04.png",
+        "frames/idle/05.png"
+      ]
+    },
+    {
+      "state": "running-right",
+      "row": 1,
+      "count": 8,
+      "durations": [
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        220
+      ],
+      "frames": [
+        "frames/running-right/00.png",
+        "frames/running-right/01.png",
+        "frames/running-right/02.png",
+        "frames/running-right/03.png",
+        "frames/running-right/04.png",
+        "frames/running-right/05.png",
+        "frames/running-right/06.png",
+        "frames/running-right/07.png"
+      ]
+    },
+    {
+      "state": "running-left",
+      "row": 2,
+      "count": 8,
+      "durations": [
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        220
+      ],
+      "frames": [
+        "frames/running-left/00.png",
+        "frames/running-left/01.png",
+        "frames/running-left/02.png",
+        "frames/running-left/03.png",
+        "frames/running-left/04.png",
+        "frames/running-left/05.png",
+        "frames/running-left/06.png",
+        "frames/running-left/07.png"
+      ]
+    },
+    {
+      "state": "waving",
+      "row": 3,
+      "count": 4,
+      "durations": [
+        140,
+        140,
+        140,
+        280
+      ],
+      "frames": [
+        "frames/waving/00.png",
+        "frames/waving/01.png",
+        "frames/waving/02.png",
+        "frames/waving/03.png"
+      ]
+    },
+    {
+      "state": "jumping",
+      "row": 4,
+      "count": 5,
+      "durations": [
+        140,
+        140,
+        140,
+        140,
+        280
+      ],
+      "frames": [
+        "frames/jumping/00.png",
+        "frames/jumping/01.png",
+        "frames/jumping/02.png",
+        "frames/jumping/03.png",
+        "frames/jumping/04.png"
+      ]
+    },
+    {
+      "state": "failed",
+      "row": 5,
+      "count": 8,
+      "durations": [
+        140,
+        140,
+        140,
+        140,
+        140,
+        140,
+        140,
+        240
+      ],
+      "frames": [
+        "frames/failed/00.png",
+        "frames/failed/01.png",
+        "frames/failed/02.png",
+        "frames/failed/03.png",
+        "frames/failed/04.png",
+        "frames/failed/05.png",
+        "frames/failed/06.png",
+        "frames/failed/07.png"
+      ]
+    },
+    {
+      "state": "waiting",
+      "row": 6,
+      "count": 6,
+      "durations": [
+        150,
+        150,
+        150,
+        150,
+        150,
+        260
+      ],
+      "frames": [
+        "frames/waiting/00.png",
+        "frames/waiting/01.png",
+        "frames/waiting/02.png",
+        "frames/waiting/03.png",
+        "frames/waiting/04.png",
+        "frames/waiting/05.png"
+      ]
+    },
+    {
+      "state": "running",
+      "row": 7,
+      "count": 6,
+      "durations": [
+        120,
+        120,
+        120,
+        120,
+        120,
+        220
+      ],
+      "frames": [
+        "frames/running/00.png",
+        "frames/running/01.png",
+        "frames/running/02.png",
+        "frames/running/03.png",
+        "frames/running/04.png",
+        "frames/running/05.png"
+      ]
+    },
+    {
+      "state": "review",
+      "row": 8,
+      "count": 6,
+      "durations": [
+        150,
+        150,
+        150,
+        150,
+        150,
+        280
+      ],
+      "frames": [
+        "frames/review/00.png",
+        "frames/review/01.png",
+        "frames/review/02.png",
+        "frames/review/03.png",
+        "frames/review/04.png",
+        "frames/review/05.png"
+      ]
+    }
+  ],
+  "interpolation": {
+    "running-right": {
+      "frames": [
+        "interpolated/running-right/00.png",
+        "interpolated/running-right/01.png",
+        "interpolated/running-right/02.png",
+        "interpolated/running-right/03.png",
+        "interpolated/running-right/04.png",
+        "interpolated/running-right/05.png",
+        "interpolated/running-right/06.png",
+        "interpolated/running-right/07.png",
+        "interpolated/running-right/08.png",
+        "interpolated/running-right/09.png",
+        "interpolated/running-right/10.png",
+        "interpolated/running-right/11.png",
+        "interpolated/running-right/12.png",
+        "interpolated/running-right/13.png",
+        "interpolated/running-right/14.png",
+        "interpolated/running-right/15.png"
+      ],
+      "durations": [
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        160.0,
+        60.0
+      ],
+      "originalPoseHoldPairs": [
+        4
+      ]
+    },
+    "running-left": {
+      "frames": [
+        "interpolated/running-left/00.png",
+        "interpolated/running-left/01.png",
+        "interpolated/running-left/02.png",
+        "interpolated/running-left/03.png",
+        "interpolated/running-left/04.png",
+        "interpolated/running-left/05.png",
+        "interpolated/running-left/06.png",
+        "interpolated/running-left/07.png",
+        "interpolated/running-left/08.png",
+        "interpolated/running-left/09.png",
+        "interpolated/running-left/10.png",
+        "interpolated/running-left/11.png",
+        "interpolated/running-left/12.png",
+        "interpolated/running-left/13.png",
+        "interpolated/running-left/14.png",
+        "interpolated/running-left/15.png"
+      ],
+      "durations": [
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        60.0,
+        160.0,
+        60.0
+      ],
+      "originalPoseHoldPairs": []
+    },
+    "waving": {
+      "frames": [
+        "interpolated/waving/00.png",
+        "interpolated/waving/01.png",
+        "interpolated/waving/02.png",
+        "interpolated/waving/03.png",
+        "interpolated/waving/04.png",
+        "interpolated/waving/05.png",
+        "interpolated/waving/06.png",
+        "interpolated/waving/07.png"
+      ],
+      "durations": [
+        70.0,
+        70.0,
+        70.0,
+        70.0,
+        70.0,
+        70.0,
+        210.0,
+        70.0
+      ],
+      "originalPoseHoldPairs": []
+    },
+    "jumping": {
+      "frames": [
+        "interpolated/jumping/00.png",
+        "interpolated/jumping/01.png",
+        "interpolated/jumping/02.png",
+        "interpolated/jumping/03.png",
+        "interpolated/jumping/04.png",
+        "interpolated/jumping/05.png",
+        "interpolated/jumping/06.png",
+        "interpolated/jumping/07.png",
+        "interpolated/jumping/08.png",
+        "interpolated/jumping/09.png"
+      ],
+      "durations": [
+        70.0,
+        70.0,
+        70.0,
+        70.0,
+        70.0,
+        70.0,
+        70.0,
+        70.0,
+        210.0,
+        70.0
+      ],
+      "originalPoseHoldPairs": [
+        2
+      ]
+    }
+  }
+}

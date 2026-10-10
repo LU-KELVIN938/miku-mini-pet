@@ -1,0 +1,407 @@
+{
+  "sourceSha256": "0353fd41a49b0892691969224785524b0644449bd23ae5a7fc61aec4662ab4b5",
+  "changes": [
+    {
+      "state": "idle",
+      "frame": 0,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "idle",
+      "frame": 1,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "idle",
+      "frame": 2,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "idle",
+      "frame": 3,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "idle",
+      "frame": 4,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "idle",
+      "frame": 5,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "running-right",
+      "frame": 0,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "running-right",
+      "frame": 1,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "running-right",
+      "frame": 2,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "running-right",
+      "frame": 3,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "running-right",
+      "frame": 4,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "running-right",
+      "frame": 5,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "running-right",
+      "frame": 6,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "running-right",
+      "frame": 7,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "running-left",
+      "frame": 0,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "running-left",
+      "frame": 1,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "running-left",
+      "frame": 2,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "running-left",
+      "frame": 3,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "running-left",
+      "frame": 4,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "running-left",
+      "frame": 5,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "running-left",
+      "frame": 6,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "running-left",
+      "frame": 7,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "waving",
+      "frame": 0,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "waving",
+      "frame": 1,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "waving",
+      "frame": 2,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "waving",
+      "frame": 3,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "jumping",
+      "frame": 0,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "jumping",
+      "frame": 1,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "jumping",
+      "frame": 2,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "jumping",
+      "frame": 3,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "jumping",
+      "frame": 4,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "failed",
+      "frame": 0,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "failed",
+      "frame": 1,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "failed",
+      "frame": 2,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "failed",
+      "frame": 3,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "failed",
+      "frame": 4,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "failed",
+      "frame": 5,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "failed",
+      "frame": 6,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "failed",
+      "frame": 7,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "waiting",
+      "frame": 0,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "waiting",
+      "frame": 1,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "waiting",
+      "frame": 2,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "waiting",
+      "frame": 3,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "waiting",
+      "frame": 4,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "waiting",
+      "frame": 5,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "running",
+      "frame": 0,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "running",
+      "frame": 1,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "running",
+      "frame": 2,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "running",
+      "frame": 3,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "running",
+      "frame": 4,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "running",
+      "frame": 5,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "review",
+      "frame": 0,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "review",
+      "frame": 1,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "review",
+      "frame": 2,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "review",
+      "frame": 3,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "review",
+      "frame": 4,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    },
+    {
+      "state": "review",
+      "frame": 5,
+      "dx": 0,
+      "dy": 0,
+      "scale": 1
+    }
+  ],
+  "lookRowsUnchanged": true,
+  "verticalMotionUnchanged": true,
+  "nativeFrameCountsUnchanged": true
+}

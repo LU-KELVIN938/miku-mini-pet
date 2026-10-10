@@ -1,0 +1,50 @@
+{
+  "engine": "nihui/rife-ncnn-vulkan 20221029",
+  "model": "rife-v4.6",
+  "device": "CPU",
+  "alpha": "separate RIFE alpha pass",
+  "loopClosure": true,
+  "states": [
+    {
+      "state": "running-right",
+      "inputFrames": 8,
+      "outputFrames": 16,
+      "loopMs": 1060.0,
+      "includingLastToFirst": true,
+      "originalPoseHoldPairs": [
+        4
+      ],
+      "acceptedNewFrames": 7
+    },
+    {
+      "state": "running-left",
+      "inputFrames": 8,
+      "outputFrames": 16,
+      "loopMs": 1060.0,
+      "includingLastToFirst": true,
+      "originalPoseHoldPairs": [],
+      "acceptedNewFrames": 8
+    },
+    {
+      "state": "waving",
+      "inputFrames": 4,
+      "outputFrames": 8,
+      "loopMs": 700.0,
+      "includingLastToFirst": true,
+      "originalPoseHoldPairs": [],
+      "acceptedNewFrames": 4
+    },
+    {
+      "state": "jumping",
+      "inputFrames": 5,
+      "outputFrames": 10,
+      "loopMs": 840.0,
+      "includingLastToFirst": true,
+      "originalPoseHoldPairs": [
+        2
+      ],
+      "acceptedNewFrames": 4
+    }
+  ],
+  "processingSeconds": 1.13
+}

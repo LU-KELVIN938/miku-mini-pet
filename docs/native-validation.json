@@ -1,0 +1,24 @@
+{
+  "ok": true,
+  "size": [
+    1536,
+    2288
+  ],
+  "usedCounts": [
+    7,
+    8,
+    8,
+    4,
+    5,
+    8,
+    6,
+    6,
+    6,
+    8,
+    8
+  ],
+  "unusedCellsTransparent": true,
+  "lookRowsPixelIdenticalToSource": true,
+  "scope": "geometry, alpha preservation and format; motion checked separately",
+  "staticDefaultPixelIdenticalToSource": true
+}
