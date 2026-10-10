@@ -13,13 +13,14 @@ old.style.backgroundImage="url('source-spritesheet.webp')";
 // Codex's local loader also supplies custom sprites as an image/webp data URL.
 const bytes=new Uint8Array(await(await fetch('native-spritesheet.webp')).arrayBuffer());
 let binary='';for(let i=0;i<bytes.length;i+=32768)binary+=String.fromCharCode(...bytes.subarray(i,i+32768));
-pet.style.backgroundImage='url("data:image/webp;base64,'+btoa(binary)+'")';
+const url='data:image/webp;base64,'+btoa(binary),image=new Image();image.src=url;await image.decode();
+pet.style.backgroundImage='url("'+url+'")';
 let state='idle',timer;
 function setState(s){state=s;clearTimeout(timer);let i=0;const row=rows.get(s);
  function draw(){const position=`${i/7*100}% ${row.row/10*100}%`;old.style.backgroundPosition=pet.style.backgroundPosition=position;
   timer=setTimeout(()=>{i=(i+1)%row.count;draw()},row.durations[i]*(state==='idle'?6:1));}draw();
 }
 document.querySelector('#state').addEventListener('change',e=>setState(e.target.value));
-window.NativePet={setState,ready:true};setState('idle');
+window.NativePet={setState,setLookFrame(row,col){clearTimeout(timer);old.style.backgroundPosition=pet.style.backgroundPosition=`${col/7*100}% ${row/10*100}%`;},ready:true};setState('idle');
 })().catch(e=>{document.querySelector('small').textContent='加载失败：'+e.message;console.error(e)});
 </script></html>

@@ -9,14 +9,18 @@ const root=path.resolve(__dirname,'..');
  await page.goto('http://127.0.0.1:8765/native-preview.html');
  await page.waitForFunction(()=>window.NativePet?.ready,{timeout:60000});
  await page.waitForTimeout(200);
- const first=await page.locator('#native').screenshot();await page.waitForTimeout(350);
- const second=await page.locator('#native').screenshot();assert(!first.equals(second),'Native idle image is static');
+ async function visibleVariants(){const seen=new Set();for(let i=0;i<7;i++){
+  seen.add((await page.locator('#native').screenshot()).toString('base64'));await page.waitForTimeout(137);
+ }return seen.size;}
+ const idleVariants=await visibleVariants();assert(idleVariants>1,'Native idle image is static');
  const states=['idle','running','waiting','review','running-right','running-left','waving','jumping','failed'];
  const snaps=path.join(root,'work/native-browser-check');fs.mkdirSync(snaps,{recursive:true});
  for(const state of states){
   await page.selectOption('#state',state);await page.waitForTimeout(100);
   fs.writeFileSync(path.join(snaps,state+'.png'),await page.locator('#native').screenshot());
  }
+ await page.evaluate(()=>window.NativePet.setLookFrame(9,4));
+ const lookVariants=await visibleVariants();assert(lookVariants>1,'Pointer look frame freezes image animation');
  await page.selectOption('#state','idle');await page.waitForTimeout(100);
  await page.screenshot({path:path.join(root,'docs/native-preview.png')});
  // Background-image keeps animating while the host changes fixed column indices.
@@ -25,7 +29,7 @@ const root=path.resolve(__dirname,'..');
  fs.writeFileSync(path.join(root,'docs/native-browser-validation.json'),JSON.stringify({ok:true,states,
   scope:'isolated headless Edge CSS background-image using the same image data URL and 8x11 layout as the installed Codex build',
   checks:['animated idle visibly changes while native idle holds its first cell','all nine state rows render',
-          'custom pet data URL loads without page errors','native timers and background-position grid'],
-  actualCodexWindowReloaded:false,errors},null,2)+'\n');
+          'custom pet data URL loads without page errors','native timers and background-position grid','pointer/caret look frame keeps breathing'],
+  idleVariants,lookVariants,actualCodexWindowReloaded:false,errors},null,2)+'\n');
  await browser.close();console.log('Native CSS/data-URL playback verified.');
 })().catch(e=>{console.error(e);process.exit(1);});

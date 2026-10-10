@@ -20,7 +20,7 @@ Windows：解压安装包后双击 `Install-Codex.cmd`。它先备份旧文件�
 
 - 从原来的 Codex 待机帧拆出头部、身体、双马尾与眼睛，保留原来的角色样子；离线烘焙呼吸、眨眼与小幅状态姿势。
 - 使用通过视觉检查的左右移动、挥手、跳跃补帧。两个有瑕疵的补帧继续保留原姿势。
-- 原失败反应和 16 个注视方向保留；未使用的格子保持透明。
+- 保留原失败反应；16 个注视方向沿用原画，加入脚部固定的轻微呼吸，未使用的格子保持透明。
 - 自包含动画 WebP：1536×2288、8×11、192×208，32 个图集画面，每画面 80 毫秒，循环 2.56 秒；图像动画目标为 12.5 帧/秒，不是 60 帧承诺。
 
 ## 为什么能在内置宠物里播放
@@ -45,7 +45,7 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Install-Codex.ps1 -Sta
 
 ## 验证与制作
 
-[图集验证](docs/native-validation.json) 验证全部 32 个解码画面、透明格子、方向可见像素和旧素材差异；[CSS 播放验证](docs/native-browser-validation.json) 验证图片通过 Codex 使用的 data URL 显示并持续变化；[视觉 QA](docs/native-visual-qa.md) 检查睁眼、闭眼和动作预览。
+[图集验证](docs/native-validation.json) 验证全部 32 个解码画面、透明格子、方向首帧原画和旧素材差异；[CSS 播放验证](docs/native-browser-validation.json) 验证图片通过 Codex 使用的 data URL 显示并持续变化，也检查固定注视方向时继续呼吸；[视觉 QA](docs/native-visual-qa.md) 检查睁眼、闭眼和动作预览。
 
 重建步骤：`tools/prepare_native_layers.py` → `node tools/write_psd.cjs --native` → `node tools/bake_native.cjs` → `tools/build_native.py`。制作时需要 Pillow、NumPy、Node.js 和可运行的隔离 Playwright 浏览器，且本地预览服务需启动。成品播放不需要这些制作工具。
 

@@ -16,8 +16,11 @@
     "animated idle visibly changes while native idle holds its first cell",
     "all nine state rows render",
     "custom pet data URL loads without page errors",
-    "native timers and background-position grid"
+    "native timers and background-position grid",
+    "pointer/caret look frame keeps breathing"
   ],
+  "idleVariants": 6,
+  "lookVariants": 6,
   "actualCodexWindowReloaded": false,
   "errors": []
 }

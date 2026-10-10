@@ -1,7 +1,7 @@
 """Build a self-contained animated v2 atlas plus a regular static fallback."""
 from pathlib import Path
 from hashlib import sha256
-import json, sys
+import json, sys, math
 import numpy as np
 from PIL import Image, ImageDraw
 ROOT=Path(__file__).resolve().parents[1]
@@ -29,6 +29,15 @@ def build():
                 cell=seq[index]
             else:continue
             for c in range(n):atlas.paste(cell,(c*192,row*208))
+        # A pointer/caret look frame overrides the state's row in Codex.
+        # Preserve each directional drawing and add only 0.3% vertical breathing.
+        sy=1+.003*math.sin(i/32*math.tau)
+        if i:
+            for row in [9,10]:
+                for c in range(8):
+                    cell=source.crop((c*192,row*208,(c+1)*192,(row+1)*208))
+                    cell=cell.transform(cell.size,Image.Transform.AFFINE,(1,0,0,0,1/sy,203-203/sy),Image.Resampling.BICUBIC)
+                    atlas.paste(cell,(c*192,row*208))
         frames.append(clear_hidden(atlas))
     animated=ROOT/'assets/spritesheet.webp'
     if '--reuse-encoded' not in sys.argv:
@@ -47,7 +56,7 @@ def build():
         # The animation decoder may fill RGB under alpha=0; those values are invisible.
         a[a[:,:,3]==0,:3]=0
         assert np.array_equal(a,b),'WebP round-trip changed visible RGBA or alpha'
-        assert np.array_equal(a[1872:],original[1872:]),'Look directions changed'
+        if i==0:assert np.array_equal(a[1872:],original[1872:]),'Initial look drawings changed'
         assert np.array_equal(a[:208,1152:1344],original[:208,1152:1344]),'Static default changed'
         for r,n in enumerate([7,8,8,4,5,8,6,6,6,8,8]):
             assert not np.any(a[r*208:(r+1)*208,n*192:,3]),'Non-transparent unused cell'
@@ -58,10 +67,10 @@ def build():
     assert all(x['visibleFramesChanged'] for x in checks if x['state']!='failed')
     # Small native-only previews, on a background that exposes alpha artifacts.
     dest=ROOT/'docs/native-previews';dest.mkdir(exist_ok=True)
-    for s in ['idle','running','waiting','review','running-right','waving','jumping']:
-        row=STATES.index(s);gif=[]
+    for s in ['idle','running','waiting','review','running-right','waving','jumping','look-right']:
+        row=9 if s=='look-right' else STATES.index(s);col=4 if s=='look-right' else 0;gif=[]
         for im in frames:
-            cell=im.crop((0,row*208,192,(row+1)*208));bg=Image.new('RGBA',(192,208),(236,246,243,255));bg.alpha_composite(cell);gif.append(bg.convert('RGB'))
+            cell=im.crop((col*192,row*208,(col+1)*192,(row+1)*208));bg=Image.new('RGBA',(192,208),(236,246,243,255));bg.alpha_composite(cell);gif.append(bg.convert('RGB'))
         gif[0].save(dest/f'{s}.gif',save_all=True,append_images=gif[1:],duration=80,loop=0)
     contact=Image.new('RGB',(900,640),'#ecf6f3');draw=ImageDraw.Draw(contact)
     for row,s in enumerate(['idle','running','waiting','review']):
@@ -74,7 +83,8 @@ def build():
     report={'ok':True,'size':[1536,2288],'grid':[8,11],'cell':[192,208],'spriteVersionNumber':2,
             'animatedAtlasFrames':32,'frameDurationMs':80,'loopMs':2560,'imageAnimationTargetFPS':12.5,
             'usedCounts':[7,8,8,4,5,8,6,6,6,8,8],'unusedCellsTransparent':True,
-            'lookRowsVisiblePixelIdenticalToSourceInEveryFrame':True,'staticDefaultVisiblePixelIdenticalToSource':True,
+            'lookRowsInitialFrameVisiblePixelIdenticalToSource':True,'lookMotion':'original directional drawings with foot-anchored vertical scale 1 +/- 0.003; no new direction synthesis',
+            'staticDefaultVisiblePixelIdenticalToSource':True,
             'roundTripVisibleRGBAIdentical':True,'transparentRGBComparison':'canonicalized to zero; alpha preserved exactly',
             'states':checks,'sourceSha256':sha256((ROOT/'assets/source-spritesheet.webp').read_bytes()).hexdigest(),
             'atlasSha256':sha256(animated.read_bytes()).hexdigest(),'bytes':animated.stat().st_size,

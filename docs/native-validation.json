@@ -31,7 +31,8 @@
     8
   ],
   "unusedCellsTransparent": true,
-  "lookRowsVisiblePixelIdenticalToSourceInEveryFrame": true,
+  "lookRowsInitialFrameVisiblePixelIdenticalToSource": true,
+  "lookMotion": "original directional drawings with foot-anchored vertical scale 1 +/- 0.003; no new direction synthesis",
   "staticDefaultVisiblePixelIdenticalToSource": true,
   "roundTripVisibleRGBAIdentical": true,
   "transparentRGBComparison": "canonicalized to zero; alpha preserved exactly",
@@ -83,8 +84,8 @@
     }
   ],
   "sourceSha256": "0353fd41a49b0892691969224785524b0644449bd23ae5a7fc61aec4662ab4b5",
-  "atlasSha256": "ff04aa4f8e21007fa1386ab42b33aa69ee29edac835e97e714e4d48a87a67ffb",
-  "bytes": 25843322,
+  "atlasSha256": "045a2e6403ad07ec89a36ee09c5e83d55e6475a40510956c6c220751ff40f59b",
+  "bytes": 44272996,
   "runtime": "native animated WebP decoded by the existing CSS background-image; no external process",
   "scope": "file format, all decoded frames, visible source differences; host rendering tested separately"
 }
