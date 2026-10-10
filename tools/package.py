@@ -8,18 +8,21 @@ def main():
     parser=argparse.ArgumentParser();parser.add_argument('--out',type=Path,required=True)
     args=parser.parse_args();args.out.mkdir(parents=True,exist_ok=True)
     report=json.loads((ROOT/'docs/native-validation.json').read_text('utf-8'))
-    assert report['ok'] and report['animatedAtlasFrames']==32
+    assert report['ok'] and report['imageFrames']==1 and report['releaseReady']
     assert report['atlasSha256']==hashlib.sha256((ROOT/'assets/spritesheet.webp').read_bytes()).hexdigest()
-    assert json.loads((ROOT/'docs/native-browser-validation.json').read_text('utf-8'))['ok']
+    browser=json.loads((ROOT/'docs/native-browser-validation.json').read_text('utf-8'))
+    assert browser['ok'] and browser['atlasSha256']==report['atlasSha256']
     assert (ROOT/'docs/native-visual-qa.md').exists()
     entries={'pet.json':'pet.json','assets/spritesheet.webp':'spritesheet.webp',
-             'assets/static-spritesheet.webp':'static-spritesheet.webp',
              'Install-Codex.cmd':'Install-Codex.cmd','Install-Codex.ps1':'Install-Codex.ps1',
              'README.md':'README.md','THIRD-PARTY.md':'THIRD-PARTY.md',
              'docs/native-validation.json':'docs/native-validation.json',
              'docs/native-browser-validation.json':'docs/native-browser-validation.json',
              'docs/native-visual-qa.md':'docs/native-visual-qa.md',
+             'docs/gait-visual-qa.json':'docs/gait-visual-qa.json',
              'docs/native-previews/idle.gif':'docs/native-previews/idle.gif',
+             'docs/native-previews/running-right.gif':'docs/native-previews/running-right.gif',
+             'docs/native-previews/running-left.gif':'docs/native-previews/running-left.gif',
              'docs/native-preview.png':'docs/native-preview.png',
              'web/rig/LICENSE':'LICENSES/Anime2.5DRig.txt'}
     archive=args.out/'Miku-Mini-Codex-pet.zip'
@@ -27,11 +30,14 @@ def main():
         for source,dest in entries.items():bundle.write(ROOT/source,'Miku-Mini-Codex/'+dest)
     with ZipFile(archive) as bundle:assert bundle.testzip() is None
     shutil.copy2(ROOT/'docs/native-previews/idle.gif',args.out/'Miku-Mini-Codex-idle.gif')
+    for state in ['running-right','running-left']:
+        shutil.copy2(ROOT/f'docs/native-previews/{state}.gif',args.out/f'Miku-Mini-Codex-{state}.gif')
+    shutil.copy2(ROOT/'docs/native-motion-sheet.png',args.out/'Miku-Mini-Codex-步态对照.png')
     shutil.copy2(ROOT/'docs/native-preview.png',args.out/'Miku-Mini-Codex-preview.png')
     shutil.copy2(ROOT/'README.md',args.out/'Miku-Mini-Codex-使用说明.md')
     note={'package':archive.name,'sha256':hashlib.sha256(archive.read_bytes()).hexdigest(),
-          'bytes':archive.stat().st_size,'type':'Codex v2 native pet, animated WebP with static fallback',
-          'gitHubUpdate':'pending native update push'}
+          'bytes':archive.stat().st_size,'type':'Codex v2 native pet, static atlas with alternating two-leg native-clock gait',
+          'actualCodexWindowVerified':False,'gitHubUpdate':'pending native gait update push'}
     (args.out/'native-package-info.json').write_text(json.dumps(note,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(note,ensure_ascii=False))
 

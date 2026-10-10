@@ -1,4 +1,14 @@
-# 2026-10-10 · Lightweight motion update
+# 2026-10-10 · Native walking gait repair
+
+- Reused existing Miku source pixels in an independently controlled two-leg textured rig, as explicitly chosen by the user. Added the missing opposite leading-foot half-cycle; no paid image generation.
+- Baked eight distinct rightward poses and mirrored individual cells for leftward motion after independent QA approval. The frame order and native 120ms/220ms durations are preserved.
+- Replaced the 32-frame animated atlas with a single static v2 atlas. The host now controls movement phase; removed the independent 1280ms image-clock cycle.
+- Retained the previously approved static micro-action base in non-locomotion rows and the original sixteen look cells. Atlas size decreased from 44,272,996 to 2,653,580 bytes.
+- Independent file QA accepted both movement rows with warnings for angular knees, overlapping feet near the seam and the host-defined final hold. No major structure, identity, clipping or direction issue remained.
+- Final CSS/data-URL headless validation covers all nine rows, eight distinct movement poses, 1060ms cycles, short stop, reversal, three-cycle idle fallback, reduced motion and sixteen static look cells. The actual Codex window has not been inspected or automatically reloaded.
+- Added content-hash gates for approved walking rows, final browser verification, installation and packaging.
+
+# Earlier 2026-10-10 · Lightweight motion update (superseded native implementation)
 
 ## Native Codex correction
 

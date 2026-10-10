@@ -1,0 +1,20 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Miku 原生步态预览</title>
+<style>body{font:16px/1.7 'Segoe UI','Microsoft YaHei',sans-serif;background:#ecf6f3;color:#284d56;margin:30px}main{max-width:800px;margin:auto}.cards{display:flex;gap:25px}.card{flex:1;background:white;border:1px solid #c9e1da;border-radius:16px;padding:18px;text-align:center}.pet{width:192px;height:208px;background-size:800% 1100%;background-repeat:no-repeat;margin:20px auto}button{padding:10px;margin:4px;border:1px solid #b4cecb;border-radius:8px;background:white;color:#284d56}small{display:block;color:#58746f}#status{font-size:14px}</style>
+<main><h1>左右脚交替步态</h1><p>对照原始动作，观察新版的换脚、落脚与循环。短动作和方向切换可以分别测试。</p>
+<button data-state="running-right">向右移动</button><button data-state="running-left">向左移动</button><button data-state="idle">停止 / 待机</button><button id="loop">切换循环预览</button>
+<div class="cards"><div class="card">原始动作素材<div class="pet" id="before"></div></div><div class="card">新版步态<div class="pet" id="candidate"></div></div></div>
+<p id="status"></p><small>默认按本机 Codex 的行为播放三遍后进入待机。循环预览方便反复观察；真实 Codex 内的停止和转向仍由应用控制。</small></main>
+<script type="module">
+import {makeTimeline} from './native-timeline.js';
+const before=document.querySelector('#before'),candidate=document.querySelector('#candidate');
+async function load(url){const bytes=new Uint8Array(await(await fetch(url)).arrayBuffer());let binary='';for(let i=0;i<bytes.length;i+=32768)binary+=String.fromCharCode(...bytes.subarray(i,i+32768));const data='data:image/webp;base64,'+btoa(binary);const im=new Image();im.src=data;await im.decode();return data;}
+const [old,newImage]=await Promise.all([load('source-spritesheet.webp'),load('native-candidate.webp')]);
+before.style.backgroundImage=`url("${old}")`;candidate.style.backgroundImage=`url("${newImage}")`;
+let state='running-right',loop=false,options={};
+const timeline=makeTimeline({manual:new URLSearchParams(location.search).has('manual'),paint(frame){for(const element of [before,candidate]){element.style.backgroundPosition=`${frame.column/7*100}% ${frame.row/10*100}%`;element.dataset.row=frame.row;element.dataset.column=frame.column;}document.querySelector('#status').textContent=`${state} · 第 ${frame.column+1} 格 · ${frame.duration} ms${loop?' · 循环预览':''}`;}});
+function setState(s,opts={}){state=s;options=opts;timeline.setState(s,{loop,...opts});}
+document.querySelectorAll('[data-state]').forEach(button=>button.onclick=()=>setState(button.dataset.state));
+document.querySelector('#loop').onclick=()=>{loop=!loop;setState(state,options);};
+window.GaitPreview={setState,advance:timeline.advance,getFrame:timeline.getFrame,ready:true};setState(state);
+</script></html>

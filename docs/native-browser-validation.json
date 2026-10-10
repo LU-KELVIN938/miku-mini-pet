@@ -1,26 +1,57 @@
 {
   "ok": true,
-  "states": [
-    "idle",
-    "running",
-    "waiting",
-    "review",
-    "running-right",
-    "running-left",
-    "waving",
-    "jumping",
-    "failed"
-  ],
-  "scope": "isolated headless Edge CSS background-image using the same image data URL and 8x11 layout as the installed Codex build",
+  "scope": "isolated headless Edge CSS/data-URL rendering of the final static v2 atlas; preview model of the installed native timers",
+  "atlasSha256": "4576ea4af10e08ddfa413ce00774af354e2ffb5ea412ee0c9fdd3e1a2dcd5f70",
+  "states": {
+    "idle": {
+      "distinctRenderedCells": 6,
+      "loopMs": 6600
+    },
+    "running-right": {
+      "distinctRenderedCells": 8,
+      "loopMs": 1060
+    },
+    "running-left": {
+      "distinctRenderedCells": 8,
+      "loopMs": 1060
+    },
+    "waving": {
+      "distinctRenderedCells": 4,
+      "loopMs": 700
+    },
+    "jumping": {
+      "distinctRenderedCells": 5,
+      "loopMs": 840
+    },
+    "failed": {
+      "distinctRenderedCells": 8,
+      "loopMs": 1220
+    },
+    "waiting": {
+      "distinctRenderedCells": 6,
+      "loopMs": 1010
+    },
+    "running": {
+      "distinctRenderedCells": 6,
+      "loopMs": 820
+    },
+    "review": {
+      "distinctRenderedCells": 6,
+      "loopMs": 1030
+    }
+  },
   "checks": [
-    "animated idle visibly changes while native idle holds its first cell",
-    "all nine state rows render",
-    "custom pet data URL loads without page errors",
-    "native timers and background-position grid",
-    "pointer/caret look frame keeps breathing"
+    "all nine rows",
+    "eight distinct movement poses",
+    "1060ms movement loop",
+    "no independent image clock",
+    "short stop",
+    "rapid reversal",
+    "three-cycle fallback",
+    "reduced motion",
+    "16 static look poses"
   ],
-  "idleVariants": 6,
-  "lookVariants": 6,
+  "actualCodexWindowVerified": false,
   "actualCodexWindowReloaded": false,
   "errors": []
 }

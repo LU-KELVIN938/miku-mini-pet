@@ -1,0 +1,29 @@
+{
+  "status": "accepted_with_warnings",
+  "reviewer": "independent pet_visual_check agent",
+  "scope": "rightward eight-cell file sequence, full body and enlarged legs; not the actual Codex window",
+  "completeAlternatingGait": true,
+  "majorIssues": [],
+  "evidence": [
+    "00: far foot leads and near foot recovers",
+    "02-04: near foot moves ahead while far foot moves back",
+    "05-07: far foot swings forward to return to 00",
+    "00,02,04,07: leg-foot connections continuous; no original third leg or disconnected shoe",
+    "07 to 00: similar pose, no large position or scale jump",
+    "all eight cells: no obvious clipping"
+  ],
+  "acceptedWarnings": [
+    "02,03,05: angular knee silhouettes from the source-art mesh deformation",
+    "00,01,07: overlapping feet reduce alternation visibility at native size",
+    "07: the host-defined 220ms hold may still cause a cadence pause"
+  ],
+  "mirrorSafe": true,
+  "mirrorReason": "No text or handheld prop; small costume/hair asymmetries are acceptable. Mirror individual cells without reversing order.",
+  "leftRowFinalReview": "accepted_with_warnings",
+  "actualCodexWindowVerified": false,
+  "finalBothRowsReview": "accepted_with_warnings",
+  "approvedPoseHashes": {
+    "running-right": "5eea6c7879fc403a3adf1e702df99b81c14575fc30c82e795f2e850f5d36ee5c",
+    "running-left": "537f250fd2485c98fdbeb163a4d02503ce15ad2028abda19e669114eb3075bc0"
+  }
+}

@@ -1,91 +1,74 @@
 {
   "ok": true,
+  "scope": "file format, clock architecture and preserved artwork only",
   "size": [
     1536,
     2288
-  ],
-  "grid": [
-    8,
-    11
   ],
   "cell": [
     192,
     208
   ],
   "spriteVersionNumber": 2,
-  "animatedAtlasFrames": 32,
-  "frameDurationMs": 80,
-  "loopMs": 2560,
-  "imageAnimationTargetFPS": 12.5,
-  "usedCounts": [
-    7,
-    8,
-    8,
-    4,
-    5,
-    8,
-    6,
-    6,
-    6,
-    8,
-    8
-  ],
+  "imageFrames": 1,
+  "imageHasIndependentAnimationClock": false,
+  "unrelatedRowsVisibleRGBAUnchangedFromOriginalSource": true,
   "unusedCellsTransparent": true,
-  "lookRowsInitialFrameVisiblePixelIdenticalToSource": true,
-  "lookMotion": "original directional drawings with foot-anchored vertical scale 1 +/- 0.003; no new direction synthesis",
-  "staticDefaultVisiblePixelIdenticalToSource": true,
-  "roundTripVisibleRGBAIdentical": true,
-  "transparentRGBComparison": "canonicalized to zero; alpha preserved exactly",
-  "states": [
-    {
-      "state": "idle",
-      "visibleFramesChanged": true,
-      "source": "baked original sprite layers"
+  "motion": {
+    "running-right": {
+      "distinctCells": 8,
+      "durationsMs": [
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        220
+      ],
+      "loopMs": 1060,
+      "gaitVisualQA": "required; distinct pixels do not prove foot alternation"
     },
-    {
-      "state": "running-right",
-      "visibleFramesChanged": true,
-      "source": "accepted RIFE frames"
-    },
-    {
-      "state": "running-left",
-      "visibleFramesChanged": true,
-      "source": "accepted RIFE frames"
-    },
-    {
-      "state": "waving",
-      "visibleFramesChanged": true,
-      "source": "accepted RIFE frames"
-    },
-    {
-      "state": "jumping",
-      "visibleFramesChanged": true,
-      "source": "accepted RIFE frames"
-    },
-    {
-      "state": "failed",
-      "visibleFramesChanged": false,
-      "source": "original reaction"
-    },
-    {
-      "state": "waiting",
-      "visibleFramesChanged": true,
-      "source": "baked original sprite layers"
-    },
-    {
-      "state": "running",
-      "visibleFramesChanged": true,
-      "source": "baked original sprite layers"
-    },
-    {
-      "state": "review",
-      "visibleFramesChanged": true,
-      "source": "baked original sprite layers"
+    "running-left": {
+      "distinctCells": 8,
+      "durationsMs": [
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        120,
+        220
+      ],
+      "loopMs": 1060,
+      "gaitVisualQA": "required; distinct pixels do not prove foot alternation"
     }
+  },
+  "atlasSha256": "4576ea4af10e08ddfa413ce00774af354e2ffb5ea412ee0c9fdd3e1a2dcd5f70",
+  "bytes": 2653580,
+  "animatedAtlasFrames": 1,
+  "playbackClock": "Codex native cell timer only",
+  "locomotionPoseHashes": {
+    "running-right": "5eea6c7879fc403a3adf1e702df99b81c14575fc30c82e795f2e850f5d36ee5c",
+    "running-left": "537f250fd2485c98fdbeb163a4d02503ce15ad2028abda19e669114eb3075bc0"
+  },
+  "baseSha256": "3a9d3408645defbb9fb24b9c7114a44e808a21358bd29109ceab21c38acaf550",
+  "lookRowsVisibleRGBAIdenticalToOriginalSource": true,
+  "nonLocomotionRowsVisibleRGBAIdenticalToApprovedMicroBase": true,
+  "completeAlternatingGait": true,
+  "releaseReady": true,
+  "acceptedVisualWarnings": [
+    "02,03,05: angular knee silhouettes from the source-art mesh deformation",
+    "00,01,07: overlapping feet reduce alternation visibility at native size",
+    "07: the host-defined 220ms hold may still cause a cadence pause"
   ],
-  "sourceSha256": "0353fd41a49b0892691969224785524b0644449bd23ae5a7fc61aec4662ab4b5",
-  "atlasSha256": "045a2e6403ad07ec89a36ee09c5e83d55e6475a40510956c6c220751ff40f59b",
-  "bytes": 44272996,
-  "runtime": "native animated WebP decoded by the existing CSS background-image; no external process",
-  "scope": "file format, all decoded frames, visible source differences; host rendering tested separately"
+  "actualCodexWindowVerified": false,
+  "hostLimitations": [
+    "directional action falls back to idle after three cycles in inspected app version",
+    "release and reversal can interrupt a cycle",
+    "final movement cell holds 220ms"
+  ],
+  "priorAnimatedAtlasBytes": 44272996
 }

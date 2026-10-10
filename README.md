@@ -1,52 +1,49 @@
-# Miku Mini：Codex 内置流畅版
+# Miku Mini：Codex 原生步态版
 
-此版本直接作为 Codex 自定义宠物使用。运行时仅加载 `pet.json` 与 `spritesheet.webp`，无需 Python、Node、桌宠程序或 AI 模型。
+直接作为 Codex 自定义宠物使用。成品只需 `pet.json` 和 `spritesheet.webp`，播放时无需 Python、Node、独立桌宠程序或 AI 模型。
 
-![新版内置宠物待机](docs/native-previews/idle.gif)
+![新版向右移动](docs/native-previews/running-right.gif)
+![新版向左移动](docs/native-previews/running-left.gif)
 
-![原图与内置新版对比](docs/native-preview.png)
+## 本次修复
 
-## 安装与重新加载
+旧移动素材长期由同一只脚领步，缺少另一半步态。此前动画 WebP 还把同一姿势复制到一行全部八列，图片内部的1.28秒周期与 Codex 的1.06秒周期独立，切换动作时可能截断脚步。
 
-Windows：解压安装包后双击 `Install-Codex.cmd`。它先备份旧文件，再安装到 `$CODEX_HOME/pets/miku-mini`；未设置该环境变量时使用 `%USERPROFILE%\.codex\pets\miku-mini`。
+本版复用原画的身体和腿部纹理，用两个独立的腿部控制器补齐前伸、承重、回收和换脚，烘焙为左右各八格。腿部采用连续网格变形，减少分段图块的连接缝；左移按格镜像，不反转动作顺序。制作方式由用户明确选择，不使用付费图像生成。
 
-也可以手动创建上述目录，把 `pet.json` 和 `spritesheet.webp` 放进去。仓库里的图集位于 `assets/spritesheet.webp`；安装包的两个文件就在根目录。
+图集改为普通静态 v2 WebP：1536×2288、8×11、每格192×208。图片本身不再包含第二个播放时钟，动作由 Codex 换格推进。文件约2.65 MB，之前为44.3 MB。九种标准动作行保留；待机、工作、等待和审阅使用此前静态微动作备用版的关键帧；16个注视方向保留原画。
 
-**安装后完整退出并重新打开 Codex，在宠物选择菜单中选择「Miku Mini · 内置流畅版」。** 正在运行的应用可能继续持有此前加载的图片；更新 GitHub 或替换文件不会自动刷新它。请先确保正在运行的任务已保存。
+## 安装与显示更新
 
-没有自动操作 Codex 窗口或重启应用。截图和本地素材播放测试来自隔离的浏览器；未在用户当前 Codex 窗口中读取或检查画面。
+Windows：解压安装包，双击 `Install-Codex.cmd`。安装会备份旧文件，再写入 `$CODEX_HOME/pets/miku-mini`；未配置时为 `%USERPROFILE%\.codex\pets\miku-mini`。
 
-## 实际改动
+手动安装：在该目录放入 `pet.json` 和 `spritesheet.webp`。仓库中的成品图集位于 `assets/spritesheet.webp`。
 
-- 从原来的 Codex 待机帧拆出头部、身体、双马尾与眼睛，保留原来的角色样子；离线烘焙呼吸、眨眼与小幅状态姿势。
-- 使用通过视觉检查的左右移动、挥手、跳跃补帧。两个有瑕疵的补帧继续保留原姿势。
-- 保留原失败反应；16 个注视方向沿用原画，加入脚部固定的轻微呼吸，未使用的格子保持透明。
-- 自包含动画 WebP：1536×2288、8×11、192×208，32 个图集画面，每画面 80 毫秒，循环 2.56 秒；图像动画目标为 12.5 帧/秒，不是 60 帧承诺。
+安装后，在 Codex 的宠物设置中刷新并选择 **Miku Mini · 原生步态版**。如果应用仍持有旧图片，请保存任务后完整退出并重新打开 Codex。替换本地文件或更新 GitHub 不保证正在运行的窗口立即重载。
 
-## 为什么能在内置宠物里播放
+安装脚本只写文件，不操作或重启 Codex。备份位于脚本旁边的 `backups/`；Python 安装器可指定备份目录。恢复时将备份的两个文件复制回宠物目录，然后重新加载。
 
-安装的 Codex 26.930.4958.0 通过图片 data URL 和 CSS 背景显示自定义宠物。静态图集的动作帧数与间隔写在程序里，待机会放慢六倍。本版本让 WebP 图片自身包含连续画面，同一动作行的已使用格子在每个时刻显示同一姿势，避免应用切换列时打断连续动画。
+本版默认已是静态图集，旧 `-Static` 参数保留兼容。图片无独立动画时间轴，宿主的减少动态效果设置可以让显示保持单格。
 
-保留九种标准动作行、16 个方向及 `spriteVersionNumber: 2`，无需修改 Codex 程序。浏览器测试覆盖相同 data URL、背景位置和播放间隔；不是对用户当前窗口的实测，也不能保证未来版本继续支持相同显示方式。
+## 效果与边界
 
-运行状态的呼吸等画面循环为 2.56 秒；左右移动循环 1.28 秒，挥手 0.64 秒，跳跃 1.28 秒。宿主动作切换时间保持由 Codex 控制，图片内部动作节奏与旧素材略有不同。
+文件检查确认左右脚有完整交替，首尾没有大幅位置或比例跳变。隔离 headless Edge 验证了最终图集的 CSS/data-URL 显示、左右八格、1.06秒周期、起停、反向、减少动态效果和16个注视格。
 
-## 普通静态备用版
+仍有轻微屈膝折线感，首尾附近两脚重叠较多。当前检查过的 Codex 26.930.4958.0 默认把移动播三遍后转待机，松手或反向可立即切换状态，末格固定停留220ms。仅更换图集无法保证任意时刻停止都走完最后一步，也不能提高宿主写死的换格频率。
 
-如果应用版本不播放动画 WebP，或希望静止/更低资源占用，可以使用 `static-spritesheet.webp`：
+真实 Codex 窗口内的观感尚未在本次制作中确认；浏览器预览和文件检查不等于用户窗口实测。
 
-```powershell
-powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Install-Codex.ps1 -Static
-```
+## 验证与重建
 
-该文件在四个常用动作行中保留不同的烘焙关键帧，受 Codex 固定播放间隔限制。Codex 的减少动态效果设置会固定格子，但不一定暂停图片内部动画；需要完全静止时使用静态备用版并启用该设置。
+- [图集验证](docs/native-validation.json)：静态图集、透明空格、保留原画、独立八格与文件哈希。
+- [播放验证](docs/native-browser-validation.json)：最终资产的隔离浏览器渲染与本机宿主时序模型。
+- [步态视觉 QA](docs/gait-visual-qa.json)：独立检查结果、接受的轻微问题与批准素材的哈希。
+- [修复记录](docs/gait-repair-progress.md)：现成资源对照、缺陷及制作过程。
 
-旧版备份在安装脚本旁边的 `backups/`，Python 安装脚本的备份在 `outputs/`（可指定路径）。恢复时把备份中的 `pet.json` 与 `spritesheet.webp` 复制回宠物目录并重新加载。
+已批准的八格行在 `assets/walk-gait/`，静态微动作基础图集在 `assets/native-micro-base.webp`。普通重建运行 `tools/build_native.py`，需要 Pillow 和 NumPy。
 
-## 验证与制作
+重新烘焙步态：`tools/bake_walk_rig.py --mirror-left --outdir assets/walk-gait`。修改参数或原画后，必须重新进行独立视觉检查并更新批准哈希，才能组装发布。
 
-[图集验证](docs/native-validation.json) 验证全部 32 个解码画面、透明格子、方向首帧原画和旧素材差异；[CSS 播放验证](docs/native-browser-validation.json) 验证图片通过 Codex 使用的 data URL 显示并持续变化，也检查固定注视方向时继续呼吸；[视觉 QA](docs/native-visual-qa.md) 检查睁眼、闭眼和动作预览。
+预览：运行 `tools/serve_preview.py --port 8766`，访问 `/native-preview.html`。运行 `tools/verify_native.cjs` 需要 Node、Playwright 和 headless Edge，且预览服务已经启动。
 
-重建步骤：`tools/prepare_native_layers.py` → `node tools/write_psd.cjs --native` → `node tools/bake_native.cjs` → `tools/build_native.py`。制作时需要 Pillow、NumPy、Node.js 和可运行的隔离 Playwright 浏览器，且本地预览服务需启动。成品播放不需要这些制作工具。
-
-动画来自原画与现有开源工具，来源与许可证见仓库的 `THIRD-PARTY.md`。原画沿用项目原有作品集条款。
+历史独立桌宠代码仍在仓库中，属于较早版本；本安装包只提供 Codex 内置素材。来源与许可证见 [THIRD-PARTY.md](THIRD-PARTY.md)，角色原画继续沿用项目原有作品集条款。

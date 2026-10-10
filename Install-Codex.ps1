@@ -2,7 +2,7 @@ param([switch]$Static)
 $ErrorActionPreference = 'Stop'
 $taskRoot = $PSScriptRoot
 $taskAssetDir = if (Test-Path -LiteralPath (Join-Path $taskRoot 'assets')) { Join-Path $taskRoot 'assets' } else { $taskRoot }
-$taskFile = if ($Static) { 'static-spritesheet.webp' } else { 'spritesheet.webp' }
+$taskFile = if ($Static -and (Test-Path -LiteralPath (Join-Path $taskAssetDir 'static-spritesheet.webp'))) { 'static-spritesheet.webp' } else { 'spritesheet.webp' }
 $taskSource = Join-Path $taskAssetDir $taskFile
 if (!(Test-Path -LiteralPath $taskSource)) { throw "Missing pet asset: $taskSource" }
 $taskCodexDir = if ($env:CODEX_HOME) { $env:CODEX_HOME } else { Join-Path $env:USERPROFILE '.codex' }
@@ -16,7 +16,6 @@ foreach ($taskName in @('pet.json','spritesheet.webp')) {
 New-Item -ItemType Directory -Path $taskPetDir -Force | Out-Null
 $taskMeta = Get-Content -LiteralPath (Join-Path $taskRoot 'pet.json') -Raw -Encoding UTF8 | ConvertFrom-Json
 $taskMeta.spritesheetPath = 'spritesheet.webp'
-if ($Static) { $taskMeta.displayName = 'Miku Mini - static fallback' }
 $taskTemp = Join-Path $taskPetDir 'spritesheet.webp.new'
 Copy-Item -LiteralPath $taskSource -Destination $taskTemp -Force
 Move-Item -LiteralPath $taskTemp -Destination (Join-Path $taskPetDir 'spritesheet.webp') -Force

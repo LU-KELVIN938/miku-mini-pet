@@ -1,7 +1,7 @@
 {
   "id": "miku-mini",
-  "displayName": "Miku Mini · 内置流畅版",
-  "description": "保留原画的 Codex 内置宠物，带连续呼吸、眨眼、发梢轻摆和精选动作过渡。",
+  "displayName": "Miku Mini · 原生步态版",
+  "description": "复用原画的左右脚交替八格步态，由 Codex 原生时序播放，保留待机微动作与16个注视方向。",
   "spriteVersionNumber": 2,
   "spritesheetPath": "spritesheet.webp"
 }
